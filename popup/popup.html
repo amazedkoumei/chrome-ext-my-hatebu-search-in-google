@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="../popup/popup.css" />
+<script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.textchange.min.js"></script>
+<script type="text/javascript" src="../lib/jsdeferred.js"></script>
+<script type="text/javascript" src="../lib/jsdeferred.jquery.js"></script>
+<script type="text/javascript" src="../lib/jsdeferred-webdatabase.js"></script>
+<script type="text/javascript" src="../lib/Model.js"></script>
+<script type="text/javascript" src="../lib/hatenaManager.js"></script>
+<script type="text/javascript" src="../lib/templateManager.js"></script>
+<script type="text/javascript" src="../lib/urlManager.js"></script>
+<script type="text/javascript" src="../background/background.js"></script>
+<script type="text/javascript" src="../popup/popup.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+//]]>
+</script>
+<title>MyBookmarks</title>
+</head>
+<body>
+<div>
+  <div class="info-area">
+    <div class="search">
+      <form id="search-form" class="">
+        <div id="user-search-area">
+          <input autocomplete="off" type="text" class="query-box" id="q" name="q" value="">
+          <input type="submit" value="検索" style="display:none">
+        </div>
+      </form>
+    </div>
+    <div id="count-area" class="count-area">
+    </div>
+  </div>
+  <hr />
+  <div id="content-area"></div>
+</div>
+</body>
+</html>
