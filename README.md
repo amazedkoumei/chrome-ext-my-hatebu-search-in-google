@@ -20,9 +20,6 @@ https://chrome.google.com/webstore/detail/fagdddhhkjdpchaokeceilckcefmbeil
 
 chrome://settings/extensions
 
-インストール / Install
-----------
-
 Pull Request / Pull Request
 ----------
 まずはIssueを確認し、適切なIssueが見当たらない場合は登録してください。
