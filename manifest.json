@@ -1,6 +1,6 @@
 {
   "name": "My はてブ Search",
-  "version": "0.1",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "マイブックマークをアイコンから参照でるようにします。Google検索結果画面では現在の検索ワードに一致するブックマーク件数がバッジ表示され、アイコンをクリックすると絞り込まれた状態でマイブックマークが表示されます。",
   "background": { "page": "background/background.html" },

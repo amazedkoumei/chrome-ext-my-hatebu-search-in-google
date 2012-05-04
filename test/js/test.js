@@ -264,11 +264,21 @@ asyncTest("getGoogleQuery", function() {
   var url;
 
   url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=seb&ie=UTF-8&ion=1#hl=ja&safe=off&output=search&sclient=psy-ab&q=hoge&oq=&aq=&aqi=&aql=&gs_nf=&gs_l=&pbx=1&fp=be5ac0d5dde5a539&ix=seb&ion=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&biw=1422&bih=734";
-  equal(urlManager.getGoogleQuery(url), "hoge", "hogeの検索");
+  equal(urlManager.getGoogleQuery(url), "hoge", "アドレスバーでの検索");
   url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=seb&ie=UTF-8&ion=1#hl=ja&safe=off&sclient=psy-ab&q=huga&oq=huga&aq=f&aqi=g-r4&aql=&gs_nf=1&gs_l=hp.3..0i4l4.1739.437403.0.438015.5.5.0.0.0.0.167.406.3j1.4.0.pTKNxLLYNxs&pbx=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=be5ac0d5dde5a539&ix=seb&ion=1&biw=1422&bih=734";
-  equal(urlManager.getGoogleQuery(url), "huga", "hogeを検索した後のhugaの検索");
+  equal(urlManager.getGoogleQuery(url), "huga", "Google検索結果ページでの検索");
   url = "https://www.google.co.jp/search?ix=seb&sourceid=chrome&ie=UTF-8&q=%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E%E3%83%AC%E3%82%B9";
-  equal(urlManager.getGoogleQuery(url), "スキーマレス", "日本語検索");
+  equal(urlManager.getGoogleQuery(url), "スキーマレス", "アドレスバーでの日本語検索");
+  url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=sea&ie=UTF-8&ion=1#hl=ja&safe=off&sclient=psy-ab&q=%E3%83%9E%E3%83%BC%E3%82%B8&oq=%E3%83%9E%E3%83%BC%E3%82%B8&aq=f&aqi=g-r4&aql=&gs_l=hp.3..0i4l4.1807.8571.0.9099.12.10.0.0.0.2.202.847.6j1j1.9.0...0.0.O5-2_mZ_oeY&pbx=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=d0fd4449f364d857&ix=sea&ion=1&biw=1422&bih=783";
+  equal(urlManager.getGoogleQuery(url), "マージ", "Google検索結果ページでの日本語検索");
+  url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=sea&ie=UTF-8&ion=1#hl=ja&safe=off&output=search&sclient=psy-ab&q=github%20pull%20request&oq=&aq=&aqi=&aql=&gs_l=&pbx=1&fp=d0fd4449f364d857&ix=sea&ion=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&biw=1422&bih=783";
+  equal(urlManager.getGoogleQuery(url), "github pull request", "アドレスバーでの複数ワード検索");
+  url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=sea&ie=UTF-8&ion=1#hl=ja&gs_nf=1&gs_is=1&pq=github%20pull%20request&cp=9&gs_id=at&xhr=t&q=google%2B+%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB&pf=p&safe=off&sclient=psy-ab&oq=google%2B+%E3%81%95&aq=0r&aqi=g-r4&aql=&gs_l=&pbx=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=d0fd4449f364d857&ix=sea&ion=1&biw=1422&bih=783";
+  equal(urlManager.getGoogleQuery(url), "google+ サークル", "Google検索結果ページでの複数ワード検索");
+  url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=sea&ie=UTF-8&ion=1#hl=ja&safe=off&output=search&sclient=psy-ab&q=github%E3%80%80pull%E3%80%80request&oq=&aq=&aqi=&aql=&gs_l=&pbx=1&fp=d0fd4449f364d857&ix=sea&ion=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&biw=1422&bih=783";
+  equal(urlManager.getGoogleQuery(url), "github　pull　request", "アドレスバーでの全角区切りでの複数ワード検索");
+  url = "https://www.google.co.jp/webhp?sourceid=chrome-instant&ix=sea&ie=UTF-8&ion=1#hl=ja&gs_nf=1&gs_is=1&pq=github%E3%80%80pull%E3%80%80request&cp=9&gs_id=117&xhr=t&q=google%2B+%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB&pf=p&safe=off&sclient=psy-ab&oq=google%2B%E3%80%80%E3%81%95&aq=0r&aqi=g-r4&aql=&gs_l=&pbx=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=d0fd4449f364d857&ix=sea&ion=1&biw=1422&bih=783&bs=1";
+  equal(urlManager.getGoogleQuery(url), "google+ サークル", "Google検索結果ページでの全角区切りでの複数ワード検索");
   url = "https://www.google.co.jp/search?aq=f&sourceid=chrome&ie=UTF-8&q=jquery#q=jquery&hl=ja&safe=off&prmd=imvnsb&source=lnt&tbs=qdr:h&sa=X&ei=2cSgT4D1F4jRmAW989W5CA&ved=0CA4QpwUoAQ&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=ceb140a66a4b1305&biw=1422&bih=783";
   equal(urlManager.getGoogleQuery(url), "jquery", "直近1時間検索");
   start();
