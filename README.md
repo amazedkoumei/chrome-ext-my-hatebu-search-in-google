@@ -26,7 +26,11 @@ Pull Request / Pull Request
 
 devlopブランチからIssue#[Issue番号]という名前でブランチを切り、Pull Requestしてください。
 
-ブランチ名の例)  issue#1
+ブランチ名の例) issue#1
+
+テストにはqunit( http://docs.jquery.com/QUnit )を使用しています。ダウンロードしたパッケージをWebサーバのDocumentRootに配置し、chrome-ext-my-hatebu-search-in-google/test/ にアクセスすることでテストを実施できます。
+
+テストの追加・修正 が必要な場合は、test/test.jsを修正のうえ、Pull Requestに含めてください。
 
 ライセンス / License
 ----------
