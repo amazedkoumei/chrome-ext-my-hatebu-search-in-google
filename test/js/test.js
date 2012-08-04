@@ -281,5 +281,9 @@ asyncTest("getGoogleQuery", function() {
   equal(urlManager.getGoogleQuery(url), "google+ サークル", "Google検索結果ページでの全角区切りでの複数ワード検索");
   url = "https://www.google.co.jp/search?aq=f&sourceid=chrome&ie=UTF-8&q=jquery#q=jquery&hl=ja&safe=off&prmd=imvnsb&source=lnt&tbs=qdr:h&sa=X&ei=2cSgT4D1F4jRmAW989W5CA&ved=0CA4QpwUoAQ&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=ceb140a66a4b1305&biw=1422&bih=783";
   equal(urlManager.getGoogleQuery(url), "jquery", "直近1時間検索");
+  url = "https://www.google.co.jp/search?q=hoge&sugexp=chrome,mod=16&sourceid=chrome&ie=UTF-8&qscrl=1";
+  equal(urlManager.getGoogleQuery(url), "hoge", "2012/08/05 Google仕様変更");
+  url = "https://www.google.co.jp/search?qu=hoge&q=huga&sugexp=chrome,mod=16&sourceid=chrome&ie=UTF-8&qscrl=1";
+  equal(urlManager.getGoogleQuery(url), "hoge", "2012/08/05 Google仕様変更 quパターン");
   start();
 });
