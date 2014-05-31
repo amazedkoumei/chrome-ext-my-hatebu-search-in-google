@@ -1,8 +1,8 @@
 {
   "name": "My はてブ Search",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "manifest_version": 2,
-  "description": "マイブックマークをアイコンから参照でるようにします。Google検索結果画面では現在の検索ワードに一致するブックマーク件数がバッジ表示され、アイコンをクリックすると絞り込まれた状態でマイブックマークが表示されます。",
+  "description": "アイコンをクリックすることで現在のページから移動することなく、自分のはてなブックマークを参照できるようにする Extension です。",
   "background": { "page": "background/background.html" },
   "browser_action" :
   {
