@@ -82,8 +82,25 @@ module.exports = function (grunt) {
 
     qunit: {
       files: ['test/index.html']
-    }
+    },
 
+    // http://yosuke-furukawa.hatenablog.com/entry/2013/06/04/085537
+    // https://github.com/yatskevich/grunt-bower-task
+    bower: {
+      install: {
+        options: {
+          targetDir: './app/bower',
+          layout: 'byComponent',
+          install: true,
+          verbose: true,
+          cleanTargetDir: true,
+          cleanBowerDir: false,
+          bowerOptions: {
+            production: false
+          }
+        }
+      }
+    }
   });
 
   grunt.registerTask('test', [
