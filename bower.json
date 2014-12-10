@@ -22,5 +22,26 @@
   "devDependencies": {
     "qunit": "~1.16.0",
     "jquery-mockjax": "~1.6.1"
+  },
+  "exportsOverride": {
+    "jquery": {
+      "": "dist/jquery.min.js"
+    },
+    "jquery.textchange.min": {
+      "jquery.textchange.min": "*.js"
+    },
+    "jsdeferred": {
+      "": [
+        "jsdeferred.js",
+        "jsdeferred.jquery.js"
+      ]
+    },
+    "jsdeferred-webdatabase": {
+      "" : "src/*"
+    },
+    "qunit": {
+    },
+    "jquery-mockjax": {
+    }
   }
 }

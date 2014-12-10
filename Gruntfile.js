@@ -9,6 +9,7 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
   
+  var path = require('path');
   grunt.initConfig({
     
     config: config,
@@ -90,7 +91,10 @@ module.exports = function (grunt) {
       install: {
         options: {
           targetDir: './app/bower',
-          layout: 'byComponent',
+          //layout: "byComponent",
+          layout: function(type, component, source) {
+            return path.join(type);
+          },
           install: true,
           verbose: true,
           cleanTargetDir: true,
@@ -102,6 +106,10 @@ module.exports = function (grunt) {
       }
     }
   });
+
+  grunt.registerTask('init', [
+    'bower:install'
+  ]);
 
   grunt.registerTask('test', [
     'connect:test',
