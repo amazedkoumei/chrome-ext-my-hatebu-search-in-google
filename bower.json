@@ -25,7 +25,10 @@
   },
   "exportsOverride": {
     "jquery": {
-      "": "dist/jquery.min.js"
+      "": [
+        "dist/jquery.min.js",
+        "dist/jquery.min.map"
+      ]
     },
     "jquery.textchange.min": {
       "jquery.textchange.min": "*.js"
