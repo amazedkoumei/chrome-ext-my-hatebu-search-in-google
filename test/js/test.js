@@ -74,7 +74,7 @@ asyncTest("case of login", function(){
     equal(hatenaManager.getHatenaId(), "amazedkoumei", 'IDが正しくセットされる');
     equal(hatenaManager.getSearchDataUrl(), "http://b.hatena.ne.jp/amazedkoumei/search.data", '同期先URLが正しくセットされる');
     //mockのお片づけ
-    $.mockjaxClear(loginMock);
+    $.mockjax.clear(loginMock);
     start();
   });
 });
@@ -89,7 +89,7 @@ asyncTest("case of logout", function(){
     equal(hatenaManager.getHatenaId(), "", 'IDが空値');
     equal(hatenaManager.getSearchDataUrl(), "", '同期先URLが空値');
     //mockのお片づけ
-    $.mockjaxClear(logoutMock);
+    $.mockjax.clear(logoutMock);
     start();
   });
 });
@@ -104,7 +104,7 @@ asyncTest("case of network error", function(){
     equal(hatenaManager.getHatenaId(), "", 'IDが空値');
     equal(hatenaManager.getSearchDataUrl(), "", '同期先URLが空値');
     //mockのお片づけ
-    $.mockjaxClear(errorMock);
+    $.mockjax.clear(errorMock);
     start();
   });
 });
@@ -122,20 +122,16 @@ asyncTest("case of login", function(){
     hatenaManager.syncBookmark()
     .next(function() {
       Bookmark.count().next(function(c){
-        console.log("レコード数のテストを実施: " + c);
         equal(c, 3, 'レコード数');
-        console.log("レコード数のテストを終了");
       }).next(function() {
         return Bookmark.findFirst();
       }).next(function(b){
-        console.log("最初のレコードのテストを実施");
         ok(true, "最初のレコードのテストを実施");
         equal(b.title, "タイトルa", '最初のレコードのタイトル');
         equal(b.comment, "ブコメb", '最初のレコードのブコメ');
         equal(b.url, "http://URLc", '最初のレコードのURL');
-        console.log("最初のレコードのテスト完了");
-        $.mockjaxClear(loginMock);
-        $.mockjaxClear(dataMock);
+        $.mockjax.clear(loginMock);
+        $.mockjax.clear(dataMock);
         start();
       });
     })
@@ -152,12 +148,10 @@ asyncTest("case of logout", function(){
     dataMock = getDataMock();
     hatenaManager.syncBookmark()
     .next(function() {
-      $.mockjaxClear(logoutMock);
-      $.mockjaxClear(dataMock);
+      $.mockjax.clear(logoutMock);
+      $.mockjax.clear(dataMock);
       Bookmark.count().next(function(c){
-        console.log("レコード数のテストを実施: " + c);
         equal(c, 0, 'レコード数');
-        console.log("レコード数のテストを終了");
         start();
       });
     });
@@ -176,8 +170,8 @@ asyncTest("search", function(){
     dataMock = getDataMock();
     hatenaManager.syncBookmark()
     .next(function() {
-      $.mockjaxClear(loginMock);
-      $.mockjaxClear(dataMock);
+      $.mockjax.clear(loginMock);
+      $.mockjax.clear(dataMock);
       hatenaManager.search("b").next(function() {
         var ret1 = hatenaManager.getResult();
         equal(ret1.item(0).title, "タイトルa", 'タイトル検索');
@@ -239,7 +233,7 @@ asyncTest("", function() {
   equal(template, "<div>@.title@</div><div>@.title@</div>", "getTemplateメソッド");
   var replaced = templateManager.replace(template, "title", "タイトル");
   equal(replaced, "<div>タイトル</div><div>タイトル</div>", "replaceメソッド");
-  $.mockjaxClear(id);
+  $.mockjax.clear(id);
   start();
 });
 module("urlManager.js");
