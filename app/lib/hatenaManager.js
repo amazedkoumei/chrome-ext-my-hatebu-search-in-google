@@ -107,7 +107,6 @@ $.extend(hatenaManager, {
                 } catch(e) {
                 }
               } else {
-                console.log("finish making database");
                 break;
               }
             }
@@ -119,7 +118,6 @@ $.extend(hatenaManager, {
     } else {
       return db.transaction(function() {
         Bookmark.dropTable().next(Bookmark.createTable);
-        console.log("drop database");
       });
     }
   },
