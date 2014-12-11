@@ -122,18 +122,14 @@ asyncTest("case of login", function(){
     hatenaManager.syncBookmark()
     .next(function() {
       Bookmark.count().next(function(c){
-        console.log("レコード数のテストを実施: " + c);
         equal(c, 3, 'レコード数');
-        console.log("レコード数のテストを終了");
       }).next(function() {
         return Bookmark.findFirst();
       }).next(function(b){
-        console.log("最初のレコードのテストを実施");
         ok(true, "最初のレコードのテストを実施");
         equal(b.title, "タイトルa", '最初のレコードのタイトル');
         equal(b.comment, "ブコメb", '最初のレコードのブコメ');
         equal(b.url, "http://URLc", '最初のレコードのURL');
-        console.log("最初のレコードのテスト完了");
         $.mockjax.clear(loginMock);
         $.mockjax.clear(dataMock);
         start();
@@ -155,9 +151,7 @@ asyncTest("case of logout", function(){
       $.mockjax.clear(logoutMock);
       $.mockjax.clear(dataMock);
       Bookmark.count().next(function(c){
-        console.log("レコード数のテストを実施: " + c);
         equal(c, 0, 'レコード数');
-        console.log("レコード数のテストを終了");
         start();
       });
     });
