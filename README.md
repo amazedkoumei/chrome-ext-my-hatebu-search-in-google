@@ -1,6 +1,8 @@
 chrome-ext-my-hatebu-search-in-google
 ======================
 
+[![Build Status](https://travis-ci.org/amazedkoumei/chrome-ext-my-hatebu-search-in-google.svg?branch=master)](https://travis-ci.org/amazedkoumei/chrome-ext-my-hatebu-search-in-google)
+
 概要 / Overview
 ----------
 マイブックマークをアイコンから参照でるようにするChrome Extensionです。
